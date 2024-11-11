@@ -9,5 +9,13 @@ def add_numbers():
     result = num1 + num2
     return jsonify({"result": result})
 
+@app.route("/multiply", methods=["POST"])
+def multiply_numbers():
+    data = request.get_json()
+    num1 = data.get("num1", 1)
+    num2 = data.get("num2", 1)
+    result = num1 * num2
+    return jsonify({"result": result})
+
 if name == "main":
     app.run(port=44)
